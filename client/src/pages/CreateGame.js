@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../utils/api';
 import CodeEditor from '../components/CodeEditor';
 import './CreateGame.css';
 
@@ -112,15 +112,9 @@ public class Game {
 
     setSaving(true);
     try {
-      const token = localStorage.getItem('token');
-      const response = await axios.post(
-        'http://localhost:5000/api/games',
-        { title, description, code, language },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-
+      const game = await api.games.create({ title, description, code, language });
       alert('Game created successfully!');
-      navigate(`/play/${response.data.id}`);
+      navigate(`/play/${game.id}`);
     } catch (error) {
       console.error('Error saving game:', error);
       alert('Failed to save game. Please try again.');

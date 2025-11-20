@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { api } from '../utils/api';
 import GameCard from '../components/GameCard';
 import './HomePage.css';
 
@@ -14,8 +14,8 @@ const HomePage = () => {
 
   const fetchGames = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/games');
-      setGames(response.data);
+      const data = await api.games.getAll();
+      setGames(data);
       setLoading(false);
     } catch (error) {
       console.error('Error fetching games:', error);

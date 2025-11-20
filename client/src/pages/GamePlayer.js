@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../utils/api';
 import './GamePlayer.css';
 
 const GamePlayer = () => {
@@ -17,8 +17,8 @@ const GamePlayer = () => {
 
   const fetchGame = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/games/${id}`);
-      setGame(response.data);
+      const data = await api.games.getById(id);
+      setGame(data);
       setLoading(false);
     } catch (error) {
       console.error('Error fetching game:', error);
@@ -28,7 +28,7 @@ const GamePlayer = () => {
 
   const incrementPlayCount = async () => {
     try {
-      await axios.post(`http://localhost:5000/api/games/${id}/play`);
+      await api.games.incrementPlays(id);
     } catch (error) {
       console.error('Error incrementing play count:', error);
     }
@@ -42,11 +42,7 @@ const GamePlayer = () => {
         return;
       }
 
-      await axios.post(
-        `http://localhost:5000/api/games/${id}/like`,
-        {},
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      await api.games.like(id);
 
       setLiked(true);
       setGame({ ...game, likes: (game.likes || 0) + 1 });

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../utils/api';
 import GameCard from '../components/GameCard';
 import './MyGames.css';
 
@@ -15,8 +15,8 @@ const MyGames = ({ user }) => {
 
   const fetchMyGames = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/games');
-      const myGames = response.data.filter(game => game.authorId === user.id);
+      const data = await api.games.getAll();
+      const myGames = data.filter(game => game.authorId === user.id);
       setGames(myGames);
       setLoading(false);
     } catch (error) {

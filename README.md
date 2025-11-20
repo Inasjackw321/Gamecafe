@@ -223,33 +223,80 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 🎯 Deployment
 
-### Deploying to Production
+### 🌐 Quick Deploy to GitHub Pages (Recommended for Demos)
 
-1. Build the client:
+The easiest way to deploy Gamecafe is using **GitHub Pages** - completely free with no backend setup required!
+
+#### Features:
+- ✅ Free hosting
+- ✅ Auto-deploy on push
+- ✅ No server maintenance
+- ✅ Works with localStorage
+- ✅ Perfect for demos and portfolios
+
+#### Quick Start:
+
+1. **Enable GitHub Pages**:
+   - Go to repository Settings → Pages
+   - Under Source, select **GitHub Actions**
+
+2. **Push to GitHub**:
+   ```bash
+   git push origin main
+   ```
+
+3. **Access your site**:
+   - Your site will be live at: `https://YOUR_USERNAME.github.io/Gamecafe/`
+   - Check deployment status in Actions tab
+
+#### What's Included:
+- Automatic GitHub Actions workflow
+- Client-side data storage with localStorage
+- Demo games pre-loaded
+- All features working (except Python/Java execution)
+
+📖 **Full GitHub Pages Guide**: See [DEPLOY_GITHUB_PAGES.md](./DEPLOY_GITHUB_PAGES.md) for detailed instructions
+
+---
+
+### 🚀 Deploying with Backend (Production)
+
+For a full production deployment with persistent database:
+
+#### 1. Build the client:
 ```bash
 cd client
 npm run build
 cd ..
 ```
 
-2. Set environment variables:
+#### 2. Set environment variables:
 ```bash
 export NODE_ENV=production
 export PORT=5000
 export JWT_SECRET=your_production_secret
+export REACT_APP_USE_LOCAL_STORAGE=false
 ```
 
-3. Start the server:
+#### 3. Start the server:
 ```bash
 npm start
 ```
 
-### Deployment Platforms
+### Backend Deployment Platforms
 
+- **Railway**: Easiest deployment with automatic SSL
 - **Heroku**: Add `Procfile` with `web: node server/index.js`
-- **Vercel/Netlify**: Deploy client build separately, configure API routes
+- **Vercel**: Use serverless functions for API
 - **DigitalOcean/AWS**: Use PM2 for process management
 - **Docker**: Create Dockerfile for containerized deployment
+
+### Database Options
+
+For persistent storage, add one of:
+- **MongoDB Atlas**: Free tier available
+- **PostgreSQL**: Via Railway, Heroku, or Supabase
+- **MySQL**: Traditional SQL database
 
 ## 💡 Usage Tips
 
