@@ -1,0 +1,113 @@
+.create-game-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.create-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.create-header {
+  text-align: center;
+  padding: 2rem;
+}
+
+.create-header h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.create-header p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+}
+
+.create-form {
+  padding: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.language-selector {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.language-selector .glass-button {
+  flex: 1;
+  min-width: 120px;
+}
+
+.language-selector .glass-button.active {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 6px 20px 0 rgba(31, 38, 135, 0.5);
+}
+
+.create-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.save-button {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.6), rgba(56, 142, 60, 0.6));
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+}
+
+.save-button:hover {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.8), rgba(56, 142, 60, 0.8));
+}
+
+.save-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cancel-button {
+  background: rgba(244, 67, 54, 0.6);
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+.cancel-button:hover {
+  background: rgba(244, 67, 54, 0.8);
+}
+
+@media (max-width: 768px) {
+  .create-game-page {
+    padding: 0 1rem 2rem;
+  }
+
+  .create-header h1 {
+    font-size: 2rem;
+  }
+
+  .language-selector .glass-button {
+    min-width: 80px;
+  }
+
+  .create-actions {
+    flex-direction: column;
+  }
+}

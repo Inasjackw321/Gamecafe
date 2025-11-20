@@ -1,0 +1,159 @@
+.game-player-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.game-info {
+  padding: 2rem;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.game-title {
+  color: white;
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.game-author {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.game-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.like-button {
+  background: rgba(244, 67, 54, 0.3);
+}
+
+.like-button:hover:not(:disabled) {
+  background: rgba(244, 67, 54, 0.5);
+}
+
+.like-button.liked {
+  background: rgba(244, 67, 54, 0.6);
+  cursor: not-allowed;
+}
+
+.game-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.game-meta {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.meta-item {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+.meta-item strong {
+  color: white;
+  margin-right: 0.5rem;
+}
+
+.game-container {
+  padding: 0;
+  overflow: hidden;
+  min-height: 600px;
+}
+
+.game-iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  background: white;
+}
+
+.code-display {
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.code-display pre {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.code-display code {
+  color: #a8edea;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.execution-note {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  text-align: center;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: white;
+}
+
+.error-container {
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 3rem;
+  text-align: center;
+}
+
+.error-container h2 {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .game-player-page {
+    padding: 0 1rem 2rem;
+  }
+
+  .game-title {
+    font-size: 2rem;
+  }
+
+  .game-header {
+    flex-direction: column;
+  }
+
+  .game-actions {
+    width: 100%;
+  }
+
+  .game-actions button {
+    flex: 1;
+  }
+}
